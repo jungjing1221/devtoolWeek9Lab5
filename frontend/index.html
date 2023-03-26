@@ -19,9 +19,13 @@
         <div class="text-center" style="margin-top: 2%;">
             <label for="formFileLg" class="form-label" style="color: #F1F6F8;">Select image to convert!</label>
             <input type="file" class="form-control" id="customFile" onchange="displayImage(event)" />
-            <button type="button" class="btn btn-light" style="margin-top: 2%;" onclick="convertImage()">convert</button>
+            <button type="button" class="btn btn-light" style="margin-top: 2%;"
+                onclick="convertImage()">convert</button>
         </div>
-        <img id="selectedImage" style="max-width: 30%; margin-top: 2%;" />
+        <div style="display: flex;gap: 10%;justify-content: center;">
+            <img id="selectedImage" style="max-width: 30%; margin-top: 2%;" />
+            <img id="convertImageOutput" style="max-width: 30%; margin-top: 2%; " />
+        </div>
     </div>
 </body>
 
@@ -74,7 +78,7 @@
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-                outputImg.src = data.processed_image
+                convertImageOutput.src = data.processed_image
             })
             .catch(error => {
                 console.log(error)
